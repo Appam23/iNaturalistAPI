@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nature Explorer | iNaturalist Search</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Nature Explorer</h1>
+    <p>Discover plants and animals identified in a place.</p>
+  </header>
+
+  <main>
+    <!-- SEARCH FOR PLACES -->
+    <section class="search-panel" aria-labelledby="search-heading">
+      <h2 id="search-heading">Where would you like to explore?</h2>
+
+      <form id="place-form">
+        <label for="place-search">Place name</label>
+
+        <div class="search-row">
+          <input
+            type="search"
+            id="place-search"
+            placeholder="For example: Idaho"
+            minlength="2"
+            required
+          >
+
+          <button type="submit">Search places</button>
+        </div>
+      </form>
+
+      <!-- SELECT A PLACE AND OPTIONAL DATES -->
+      <form id="identification-form" hidden>
+        <label for="place-select">Select a place</label>
+        <select id="place-select" required></select>
+
+        <div class="date-fields">
+          <div>
+            <label for="start-date">Observed from (optional)</label>
+            <input type="date" id="start-date">
+          </div>
+
+          <div>
+            <label for="end-date">Observed through (optional)</label>
+            <input type="date" id="end-date">
+          </div>
+        </div>
+
+        <button type="submit">Find identifications</button>
+      </form>
+    </section>
+
+    <!-- LOADING MESSAGES, ERRORS, AND RESULTS -->
+    <section aria-labelledby="results-heading">
+      <h2 id="results-heading">Identifications</h2>
+
+      <p id="status" role="status" aria-live="polite">
+        Search for a place to begin.
+      </p>
+
+      <div id="results" class="results-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Data and photographs from
+      <a href="https://www.inaturalist.org/">iNaturalist</a>.
+    </p>
+  </footer>
+</body>
+</html>
